@@ -8,31 +8,34 @@ const randomNumGenerator = document.querySelector(".random");
 const matchNumber = document.querySelector(".result");
 
 const generator = [];
-
+// Genero 5 numeri random da 1 a 100
 for (let i = 0; i < 5; i++) {
     let number = Math.floor(Math.random() * 100) + 1;
     generator.push(number);
 }
 
 let userNumber = [];
-
+// Stampo i 5 numeri generati
 randomNumGenerator.innerHTML = generator;
 
-    setTimeout(() => {
+// faccio trascorrere 30 sec e dopo genero 5 prompt che mi chiedono di inserire un numero
+setTimeout(() => {
+
+    for (let i = 0; i < 5; i++) {
+        let number = parseInt(prompt('Inserisci un numero'));
+
+        if (number == generator[i]) {
+            userNumber.push(number);
+        }
     
-            for (let i = 0; i < 5; i++) {
-                let number = parseInt(prompt('Inserisci un numero'));
-        
-                if (number == generator[i]) {
-                userNumber.push(number);
-        
-            }
-            
-            }if (userNumber.length == 5) {
-            result.innerHTML = "Hai indovinato tutti i numeri!!!"
-            }else {
-            result.innerHTML = `Hai indovinato ${userNumber.length} numero/i: " ${userNumber} "`;
-            }
-        
-}, 3000);
+    }
+    
+    if (userNumber.length == 5) {
+        matchNumber.innerHTML = "Hai indovinato tutti i numeri!!!"
+        // Stampo se ha indovinato tutti i numeri
+    }else {
+        matchNumber.innerHTML = `Hai indovinato ${userNumber.length} numero/i: " ${userNumber} "`;
+    }   // Stampo i numeri indovinati
+    
+}, 30000);
         

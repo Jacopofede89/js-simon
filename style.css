@@ -13,3 +13,10 @@ body{
     color: white;
     text-align: center;
 }
+
+.result{
+    margin-top: 200px;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+}
